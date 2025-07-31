@@ -1,0 +1,55 @@
+<div class="container">
+  <mat-card class="task-list-card">
+    <h2 class="list-title">Your Tasks</h2>
+
+    <app-task-form
+      [task]="editingTask || defaultTask"
+      (saved)="onSave($event)"
+      (canceled)="onCancel()">
+    </app-task-form>
+
+    <mat-divider class="my"></mat-divider>
+
+    <mat-form-field appearance="outline" class="filter-field">
+      <mat-label>Filter by priority</mat-label>
+      <mat-select [(ngModel)]="filterPriority">
+        <mat-option value="">All</mat-option>
+        <mat-option value="high">High</mat-option>
+        <mat-option value="medium">Medium</mat-option>
+        <mat-option value="low">Low</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div *ngFor="let t of filteredTasks()" class="task-list">
+      <mat-card class="task-card" [class.completed]="t.completed">
+        <div class="task-header">
+          <mat-checkbox [checked]="t.completed" (change)="toggleCompleted(t)" color="primary"></mat-checkbox>
+          <h3>
+            {{ t.title }}
+            <span class="priority {{ t.priority }}">
+              <mat-icon *ngIf="t.priority === 'high'" style="color:#e53935;vertical-align:middle;">arrow_upward</mat-icon>
+              <mat-icon *ngIf="t.priority === 'medium'" style="color:#fbc02d;vertical-align:middle;">trending_flat</mat-icon>
+              <mat-icon *ngIf="t.priority === 'low'" style="color:#43a047;vertical-align:middle;">arrow_downward</mat-icon>
+              {{ t.priority | titlecase }}
+            </span>
+          </h3>
+        </div>
+        <div class="content">
+          <p *ngIf="t.description">{{ t.description }}</p>
+          <small *ngIf="t.deadline" class="deadline">
+            <mat-icon style="font-size:16px;vertical-align:middle;margin-right:2px;color:#1976d2;">event</mat-icon>
+            Deadline: {{ t.deadline | date:'mediumDate' }}
+          </small>
+        </div>
+        <div class="actions">
+          <button mat-icon-button color="primary" (click)="edit(t)" aria-label="Edit Task">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="remove(t)" aria-label="Delete Task">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </mat-card>
+    </div>
+  </mat-card>
+</div>

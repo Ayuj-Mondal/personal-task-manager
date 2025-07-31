@@ -1,0 +1,30 @@
+<div class="auth-container">
+  <mat-card class="register-card">
+    <div class="register-header">
+      <mat-icon class="register-icon">person_add</mat-icon>
+      <h2>Register</h2>
+    </div>
+    <form (ngSubmit)="submit()" autocomplete="on">
+      <mat-form-field appearance="outline" class="full">
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="email" name="email" required type="email" autocomplete="email" aria-label="Email">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full">
+        <mat-label>Password</mat-label>
+        <input matInput [(ngModel)]="password" name="password" required type="password" autocomplete="new-password" aria-label="Password">
+      </mat-form-field>
+
+      <div class="form-actions">
+        <button mat-raised-button color="primary" type="submit" class="register-btn">
+          <mat-icon style="vertical-align: middle; margin-right: 4px;">person_add</mat-icon>
+          Register
+        </button>
+        <a mat-button routerLink="/login" class="login-link">
+          <mat-icon style="vertical-align: middle; margin-right: 2px;">login</mat-icon>
+          Back to Login
+        </a>
+      </div>
+    </form>
+  </mat-card>
+</div>

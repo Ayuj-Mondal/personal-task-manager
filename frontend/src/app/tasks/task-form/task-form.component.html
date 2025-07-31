@@ -1,0 +1,54 @@
+<form (ngSubmit)="save()" class="task-form">
+  <h2 class="form-title">
+    <mat-icon style="vertical-align: middle; margin-right: 8px; color: #1976d2;">
+      {{ task._id ? 'edit' : 'add_circle' }}
+    </mat-icon>
+    {{ task._id ? 'Edit Task' : 'Add New Task' }}
+  </h2>
+  
+  <mat-form-field class="full" appearance="outline">
+    <mat-label>Title</mat-label>
+    <input matInput [(ngModel)]="task.title" name="title" required placeholder="Enter task title">
+  </mat-form-field>
+
+  <mat-form-field class="full" appearance="outline">
+    <mat-label>Description</mat-label>
+    <textarea matInput [(ngModel)]="task.description" name="description" rows="3" placeholder="Describe your task"></textarea>
+  </mat-form-field>
+
+  <mat-form-field class="full" appearance="outline">
+    <mat-label>Deadline</mat-label>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="deadlineDate" name="deadline" placeholder="Choose a deadline">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field class="full" appearance="outline">
+    <mat-label>Priority</mat-label>
+    <mat-select [(ngModel)]="task.priority" name="priority">
+      <mat-option value="low">
+        <mat-icon style="vertical-align: middle; color: #43a047;">arrow_downward</mat-icon>
+        <span style="margin-left: 4px;">Low</span>
+      </mat-option>
+      <mat-option value="medium">
+        <mat-icon style="vertical-align: middle; color: #fbc02d;">trending_flat</mat-icon>
+        <span style="margin-left: 4px;">Medium</span>
+      </mat-option>
+      <mat-option value="high">
+        <mat-icon style="vertical-align: middle; color: #e53935;">arrow_upward</mat-icon>
+        <span style="margin-left: 4px;">High</span>
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="form-actions">
+    <button mat-raised-button color="primary" class="action-btn">
+      <mat-icon style="vertical-align: middle; margin-right: 4px;">{{ task._id ? 'edit' : 'add' }}</mat-icon>
+      {{ task._id ? 'Update Task' : 'Add Task' }}
+    </button>
+    <button mat-stroked-button color="warn" type="button" *ngIf="task._id" (click)="cancel()" class="action-btn cancel-btn">
+      <mat-icon style="vertical-align: middle; margin-right: 4px;">close</mat-icon>
+      Cancel
+    </button>
+  </div>
+</form>

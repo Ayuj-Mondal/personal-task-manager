@@ -1,0 +1,50 @@
+.navbar-premium {
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+    padding: 0 2rem;
+    border-radius: 0 0 16px 16px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.nav-btn {
+    font-weight: 500;
+    font-size: 1rem;
+    margin-left: 0.5rem;
+    border-radius: 24px;
+    transition: background 0.2s;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.logout-btn {
+    font-weight: 600;
+    color: #fff;
+    margin-left: 1rem;
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.12);
+}
+
+@media (max-width: 600px) {
+    .navbar-premium {
+        padding: 0 0.5rem;
+        border-radius: 0 0 8px 8px;
+    }
+
+    .logo span {
+        font-size: 1rem;
+    }
+
+    .nav-btn {
+        font-size: 0.95rem;
+        margin-left: 0.25rem;
+    }
+}
