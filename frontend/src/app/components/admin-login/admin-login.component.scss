@@ -1,0 +1,71 @@
+.admin-auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background: linear-gradient(135deg, #e3f0ff 0%, #f9f9f9 100%);
+}
+
+.admin-login-card {
+  padding: 2.5rem 2rem;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 4px 24px rgba(25, 118, 210, 0.10);
+  border-radius: 18px;
+  background: #fff;
+  transition: box-shadow 0.2s;
+}
+
+.admin-login-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.admin-login-icon {
+  font-size: 2.5rem;
+  color: #1976d2;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  text-align: center;
+  font-weight: 700;
+  color: #1976d2;
+  margin-bottom: 0;
+  font-size: 1.6rem;
+  letter-spacing: 0.5px;
+}
+
+.full {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.admin-login-btn {
+  width: 100%;
+  min-width: 120px;
+  font-weight: 600;
+  border-radius: 24px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+  margin-top: 0.5rem;
+}
+
+.admin-error-msg {
+  color: #e53935;
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+@media (max-width: 500px) {
+  .admin-login-card {
+    padding: 1rem;
+    max-width: 95vw;
+  }
+  .admin-login-header h2 {
+    font-size: 1.15rem;
+  }
+}

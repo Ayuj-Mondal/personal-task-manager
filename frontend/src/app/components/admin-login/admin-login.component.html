@@ -1,0 +1,23 @@
+<div class="admin-auth-container">
+  <mat-card class="admin-login-card">
+    <div class="admin-login-header">
+      <mat-icon class="admin-login-icon">admin_panel_settings</mat-icon>
+      <h2>Admin Login</h2>
+    </div>
+    <form (ngSubmit)="login()" autocomplete="on">
+      <mat-form-field appearance="outline" class="full">
+        <mat-label>Admin Email</mat-label>
+        <input matInput [(ngModel)]="email" name="email" required type="email" autocomplete="email" aria-label="Admin Email">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="full">
+        <mat-label>Password</mat-label>
+        <input matInput [(ngModel)]="password" name="password" required type="password" autocomplete="current-password" aria-label="Password">
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" class="admin-login-btn">
+        <mat-icon style="vertical-align: middle; margin-right: 4px;">login</mat-icon>
+        Login
+      </button>
+      <p *ngIf="error" class="admin-error-msg">{{ error }}</p>
+    </form>
+  </mat-card>
+</div>

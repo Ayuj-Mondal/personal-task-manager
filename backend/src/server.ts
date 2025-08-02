@@ -4,6 +4,9 @@ import mongoose from "mongoose";
 import { env } from "./config/env";
 import authRoutes from "./routes/auth.routes";
 import taskRoutes from "./routes/task.routes";
+import adminRoutes from './routes/admin.routes';
+
+
 
 
 async function bootstrap() {
@@ -16,7 +19,7 @@ async function bootstrap() {
   app.get("/", (_req, res) => res.send("API OK"));
   app.use("/api/auth", authRoutes);
   app.use("/api/tasks", taskRoutes);
-
+  app.use('/api/admin', adminRoutes);
 
   app.listen(env.PORT, () => console.log(`API running at http://localhost:${env.PORT}`));
 }

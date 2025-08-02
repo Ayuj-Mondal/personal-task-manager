@@ -28,6 +28,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 // Interceptor
 import { AuthTokenInterceptor } from './core/interceptors/auth-token.interceptor';
+import { AdminLoginComponent } from './components/admin-login/admin-login.component';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { AuthTokenInterceptor } from './core/interceptors/auth-token.interceptor
     RegisterComponent,
     TaskListComponent,
     TaskFormComponent,
-    NavbarComponent
+    NavbarComponent,
+    AdminLoginComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,
